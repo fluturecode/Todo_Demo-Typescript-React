@@ -1,4 +1,4 @@
-interface Todo {
+interface ITodo {
 	text: string
 	complete: boolean
 }
