@@ -1,10 +1,13 @@
 import React from "react"
 
-interface Props {
-	todo: ITodo
+interface TodoListItemProps {
+	todo: {
+		text: string
+		complete: boolean
+	}
 }
 
-export const TodoListItem: React.FC<Props> = ({ todo }) => {
+export const TodoListItem: React.FC<TodoListItemProps> = ({ todo }) => {
 	return (
 		<li>
 			<label>

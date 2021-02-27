@@ -1,7 +1,12 @@
-import React from "react";
-import { TodoListItem } from "./components/Todo.ListItem";
+import React from "react"
+import { TodoListItem } from "./components/Todo.ListItem"
 
-const todos: ITodo:[] = [
+type Todo = {
+	text: string
+	complete: boolean
+}
+
+const todos: Array<Todo> = [
 	{
 		text: "Learn Typescript",
 		complete: false,
@@ -12,7 +17,7 @@ const todos: ITodo:[] = [
 	},
 ]
 
-function App() {
+const App: React.FC = () => {
 	return (
 		<ul>
 			<TodoListItem todo={todos[0]} />
