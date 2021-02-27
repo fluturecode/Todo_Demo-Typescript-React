@@ -1,27 +1,22 @@
 import React, { useState } from "react"
-import { TodoListItem } from "./components/Todo.ListItem"
-
-type Todo = {
-	text: string
-	complete: ToggleTodo
-}
+import { TodoList } from "./components/TodoList"
 
 const initialTodos: Array<Todo> = [
 	{
 		text: "Learn Typescript",
-		complete: false,
+		complete: true,
 	},
 	{
 		text: "Write a React Boilerplate",
-		complete: true,
+		complete: false,
 	},
 ]
 
 const App: React.FC = () => {
 	const [todos, setTodos] = useState(initialTodos)
 
-	const toggleTodo = (ToggleTodo = (selectedTodo) => {
-		const newTodos: Array<Todo> = todos.map((todo) => {
+	const toggleTodo: ToggleTodo = (selectedTodo) => {
+		const newTodos = todos.map((todo) => {
 			if (todo === selectedTodo) {
 				return {
 					...todo,
@@ -31,12 +26,11 @@ const App: React.FC = () => {
 			return todo
 		})
 		setTodos(newTodos)
-	})
+	}
 
 	return (
 		<>
-			<TodoListItem todo={todos[0]} toggleTodo={toggleTodo} />
-			<TodoListItem todo={todos[1]} toggleTodo={toggleTodo} />
+			<TodoList todos={todos} toggleTodo={toggleTodo} />
 		</>
 	)
 }
